@@ -41,7 +41,7 @@ class SearchPage extends YoutubePage<_InitialData> {
     SearchFilter filter = const SearchFilter(''),
   }) {
     final url =
-        'https://www.youtube.com/results?search_query=${Uri.encodeQueryComponent(queryString)}&sp=${filter.value}';
+        'https://cors-anywhere.herokuapp.com/corsdemo/https://www.youtube.com/results?search_query=${Uri.encodeQueryComponent(queryString)}&sp=${filter.value}';
     return retry(httpClient, () async {
       final raw = await httpClient.getString(url);
       return SearchPage.parse(raw, queryString);
