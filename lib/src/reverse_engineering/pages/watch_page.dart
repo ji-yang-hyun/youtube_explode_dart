@@ -134,10 +134,12 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
 
   ///
   static Future<WatchPage> get(YoutubeHttpClient httpClient, String videoId) {
+    print("start parse");
     final url = Uri.parse(
       // point!, 여기가 실제로 호출 넣는 url 위치이다.
       'https://cors-anywhere.com/https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
     );
+    print("done parse");
     const defaultCookies = 'PREF=hl=en&tz=UTC; SOCS=CAI; GPS=1';
     const headers = {
       'User-Agent':
