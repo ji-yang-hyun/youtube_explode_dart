@@ -154,7 +154,10 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
     final cookiesExp = RegExp(r'(?:^|,)(\w.+?)=(.*?);');
 
     return retry(httpClient, () async {
+      print("start request");
       final req = await httpClient.get(url, headers: headers, validate: true);
+      print("done request");
+      print(req);
 
       final cookieHeader = req.headers['set-cookie']!;
       final matches = cookiesExp.allMatches(cookieHeader);
@@ -162,11 +165,7 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
           matches.map((e) => MapEntry(e.group(1)!, e.group(2)!)))
         ..addAll({'PREF': 'hl=en', 'SOCS': 'CAI', 'GPS': '1'});
 
-      print("start request");
-
       final result = WatchPage.parse(req.body, VideoId(videoId), cookies);
-
-      print(result);
 
       if (!result.isOk) {
         print("not ok");
