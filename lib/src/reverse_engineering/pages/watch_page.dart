@@ -161,7 +161,8 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
       print("start request");
       final req = await httpClient.get(url, headers: headers, validate: true);
       print("done request");
-      print(req);
+      print(req.body);
+      print(req.statusCode);
 
       final cookieHeader = req.headers['set-cookie']!;
       final matches = cookiesExp.allMatches(cookieHeader);
