@@ -160,15 +160,23 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
           matches.map((e) => MapEntry(e.group(1)!, e.group(2)!)))
         ..addAll({'PREF': 'hl=en', 'SOCS': 'CAI', 'GPS': '1'});
 
+      print("start request");
+
       final result = WatchPage.parse(req.body, VideoId(videoId), cookies);
 
+      print(result);
+
       if (!result.isOk) {
+        print("not ok");
         throw TransientFailureException('Video watch page is broken.');
       }
 
       if (!result.isVideoAvailable) {
+        print("not available");
         throw VideoUnavailableException.unavailable(VideoId(videoId));
       }
+
+      print("normal return");
       return result;
     });
   }
