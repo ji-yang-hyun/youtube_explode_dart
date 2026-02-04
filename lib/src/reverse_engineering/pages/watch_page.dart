@@ -137,8 +137,8 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
     print("start parse");
     final url = Uri.parse(
       // point!, 여기가 실제로 호출 넣는 url 위치이다.
-      'https://cors-anywhere.com/https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
-      // 'https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
+      // 'https://cors-anywhere.com/https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
+      'https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
       // 'https://google.com',
     );
     print('https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en');
