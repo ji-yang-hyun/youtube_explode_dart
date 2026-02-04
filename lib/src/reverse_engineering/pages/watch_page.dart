@@ -138,8 +138,8 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
     final url = Uri.parse(
       // point!, 여기가 실제로 호출 넣는 url 위치이다.
       // 'https://cors-anywhere.com/https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
-      // 'https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
-      'https://cors-anywhere.herokuapp.com/https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
+      'https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
+      // 'https://cors-anywhere.herokuapp.com/https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en',
       // 'https://google.com',
     );
     print('https://www.youtube.com/watch?v=$videoId&bpctr=9999999999&has_verified=1&hl=en');
@@ -170,6 +170,8 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
           matches.map((e) => MapEntry(e.group(1)!, e.group(2)!)))
         ..addAll({'PREF': 'hl=en', 'SOCS': 'CAI', 'GPS': '1'});
 
+      print(cookies);
+      
       final result = WatchPage.parse(req.body, VideoId(videoId), cookies);
 
       if (!result.isOk) {
