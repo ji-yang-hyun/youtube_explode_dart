@@ -169,7 +169,7 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
       // final cookies = Map.fromEntries(
       //     matches.map((e) => MapEntry(e.group(1)!, e.group(2)!)))
       //   ..addAll({'PREF': 'hl=en', 'SOCS': 'CAI', 'GPS': '1'});
-      final cookies = {}
+      final cookies = {};
 
       print(cookies);
       
