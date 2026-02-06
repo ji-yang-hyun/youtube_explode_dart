@@ -27,10 +27,10 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
   final Document root;
 
   /// Cookies linked to this webpage
-  final Map<String, String> cookies;
+  // final Map<String, String> cookies;
 
-  String get cookieString =>
-      cookies.entries.map((e) => '${e.key}=${e.value}').join('; ');
+  // String get cookieString =>
+  //     cookies.entries.map((e) => '${e.key}=${e.value}').join('; ');
 
   ///
   String? get sourceUrl {
@@ -128,7 +128,7 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
   }
 
   ///
-  WatchPage.parse(String raw, this.videoId, this.cookies)
+  WatchPage.parse(String raw, this.videoId) //, this.cookies 지움
       : root = parser.parse(raw),
         super(parser.parse(raw), (root) => WatchPageInitialData(root));
 
@@ -174,7 +174,7 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
       print(cookies);
       print(cookies.runtimeType);
       
-      final result = WatchPage.parse(req.body, VideoId(videoId), cookies);
+      final result = WatchPage.parse(req.body, VideoId(videoId)); //, cookies 지움
 
       if (!result.isOk) {
         print("not ok");
