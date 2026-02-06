@@ -161,7 +161,7 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
       print("start request");
       final req = await httpClient.get(url, headers: headers, validate: true);
       print("done request");
-      print(req.body);
+      // print(req.body);
       print(req.statusCode);
 
       // final cookieHeader = req.headers['set-cookie']!;
@@ -175,6 +175,8 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
       // print(cookies.runtimeType);
       
       final result = WatchPage.parse(req.body, VideoId(videoId)); //, cookies 지움
+
+      print(result);
 
       if (!result.isOk) {
         print("not ok");
