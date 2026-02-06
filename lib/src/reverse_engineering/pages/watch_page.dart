@@ -172,6 +172,7 @@ class WatchPage extends YoutubePage<WatchPageInitialData> {
       // final cookies = {};
 
       print(cookies);
+      print(cookies.runtimeType);
       
       final result = WatchPage.parse(req.body, VideoId(videoId), cookies);
 
