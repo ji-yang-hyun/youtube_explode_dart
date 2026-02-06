@@ -54,7 +54,7 @@ class VideoController {
         'Origin': 'https://www.youtube.com',
         'Sec-Fetch-Mode': 'navigate',
         'Content-Type': 'application/json',
-        if (watchPage != null) 'Cookie': watchPage.cookieString,
+        // if (watchPage != null) 'Cookie': watchPage.cookieString,
         ...client.headers,
       },
     );
